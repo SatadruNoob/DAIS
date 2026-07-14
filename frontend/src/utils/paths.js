@@ -34,19 +34,19 @@ export default {
     },
   },
   github: () => {
-    return "https://github.com/Mintplex-Labs/anything-llm";
+    return "https://github.com/dais";
   },
   discord: () => {
     return "https://discord.com/invite/6UyHPeGZAC";
   },
   docs: () => {
-    return "https://docs.useanything.com";
+    return ""; // Documentation URL to be configured
   },
   mailToMintplex: () => {
-    return "mailto:team@mintplexlabs.com";
+    return ""; // Support email to be configured
   },
   hosting: () => {
-    return "https://my.mintplexlabs.com/aio-checkout?product=anythingllm";
+    return ""; // Hosting URL to be configured
   },
   workspace: {
     chat: (slug) => {

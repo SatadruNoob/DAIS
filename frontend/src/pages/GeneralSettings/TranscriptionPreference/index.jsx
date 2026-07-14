@@ -5,7 +5,7 @@ import System from "@/models/system";
 import showToast from "@/utils/toast";
 import PreLoader from "@/components/Preloader";
 import OpenAiLogo from "@/media/llmprovider/openai.png";
-import AnythingLLMIcon from "@/media/logo/anything-llm-icon.png";
+import DAISIcon from "@/media/logo/dais-icon.png";
 import OpenAiWhisperOptions from "@/components/TranscriptionSelection/OpenAiOptions";
 import NativeTranscriptionOptions from "@/components/TranscriptionSelection/NativeTranscriptionOptions";
 import LLMItem from "@/components/LLMSelection/LLMItem";
@@ -78,9 +78,9 @@ export default function TranscriptionModelPreference() {
         "Leverage the OpenAI Whisper-large model using your API key.",
     },
     {
-      name: "AnythingLLM Built-In",
+      name: "DAIS Built-In",
       value: "local",
-      logo: AnythingLLMIcon,
+      logo: DAISIcon,
       options: <NativeTranscriptionOptions settings={settings} />,
       description: "Run a built-in whisper model on this instance privately.",
     },

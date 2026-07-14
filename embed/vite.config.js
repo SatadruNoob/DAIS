@@ -31,9 +31,9 @@ export default defineConfig({
   build: {
     lib: {
       entry: "src/main.jsx",
-      name: "EmbeddedAnythingLLM",
+      name: "EmbeddedDAIS",
       formats: ["umd"],
-      fileName: (_format) => `anythingllm-chat-widget.js`
+      fileName: (_format) => `dais-chat-widget.js`
     },
     rollupOptions: {
       external: [

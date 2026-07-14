@@ -4,8 +4,8 @@ import DataConnector from "./dataConnector";
 
 const System = {
   cacheKeys: {
-    footerIcons: "anythingllm_footer_links",
-    supportEmail: "anythingllm_support_email",
+    footerIcons: "dais_footer_links",
+    supportEmail: "dais_support_email",
   },
   ping: async function () {
     return await fetch(`${API_BASE}/ping`)

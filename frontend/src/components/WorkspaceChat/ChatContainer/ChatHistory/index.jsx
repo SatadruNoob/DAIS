@@ -27,7 +27,7 @@ export default function ChatHistory({ history = [], workspace, sendCommand }) {
   };
 
   useEffect(() => {
-    const storedTextSize = window.localStorage.getItem("anythingllm_text_size");
+    const storedTextSize = window.localStorage.getItem("dais_text_size");
     if (storedTextSize) {
       setTextSize(getTextSizeClass(storedTextSize));
     }

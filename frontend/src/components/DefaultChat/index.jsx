@@ -27,7 +27,7 @@ export default function DefaultChatContainer() {
     showModal: showNewWsModal,
     hideModal: hideNewWsModal,
   } = useNewWorkspaceModal();
-  const popMsg = !window.localStorage.getItem("anythingllm_intro");
+  const popMsg = !window.localStorage.getItem("dais_intro");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,9 +51,9 @@ export default function DefaultChatContainer() {
             <span
               className={`whitespace-pre-line text-white font-normal text-sm md:text-sm flex flex-col gap-y-1 mt-2`}
             >
-              Welcome to AnythingLLM, AnythingLLM is an open-source AI tool by
-              Mintplex Labs that turns anything into a trained chatbot you can
-              query and chat with. AnythingLLM is a BYOK (bring-your-own-keys)
+              Welcome to DAIS, DAIS is an open-source AI tool by
+              Labs that turns anything into a trained chatbot you can
+              query and chat with. DAIS is a BYOK (bring-your-own-keys)
               software so there is no subscription, fee, or charges for this
               software outside of the services you want to use with it.
             </span>
@@ -75,7 +75,7 @@ export default function DefaultChatContainer() {
             <span
               className={`whitespace-pre-line text-white font-normal text-sm md:text-sm flex flex-col gap-y-1 mt-2`}
             >
-              AnythingLLM is the easiest way to put powerful AI products like
+              DAIS is the easiest way to put powerful AI products like
               OpenAi, GPT-4, LangChain, PineconeDB, ChromaDB, and other services
               together in a neat package with no fuss to increase your
               productivity by 100x.
@@ -98,12 +98,12 @@ export default function DefaultChatContainer() {
               <span
                 className={`whitespace-pre-line text-white font-normal text-sm md:text-sm flex flex-col gap-y-1 mt-2`}
               >
-                AnythingLLM can run totally locally on your machine with little
+                DAIS can run totally locally on your machine with little
                 overhead you wont even notice it's there! No GPU needed. Cloud
                 and on-premises installation is available as well.
                 <br />
                 The AI tooling ecosystem gets more powerful everyday.
-                AnythingLLM makes it easy to use.
+                DAIS makes it easy to use.
               </span>
               <a
                 href={paths.github()}
@@ -218,10 +218,10 @@ export default function DefaultChatContainer() {
             <span
               className={`whitespace-pre-line text-white font-normal text-sm md:text-sm flex flex-col gap-y-1 mt-2`}
             >
-              AnythingLLM is more than a smarter Dropbox.
+              DAIS is more than a smarter Dropbox.
               <br />
               <br />
-              AnythingLLM offers two ways of talking with your data:
+              DAIS offers two ways of talking with your data:
               <br />
               <br />
               <i>Query:</i> Your chats will return data or inferences found with
@@ -297,7 +297,7 @@ export default function DefaultChatContainer() {
                   className="mt-5 w-fit transition-all duration-300 border border-slate-200 px-4 py-2 rounded-lg text-white text-sm items-center flex gap-x-2 hover:bg-slate-200 hover:text-slate-800 focus:ring-gray-800"
                 >
                   <EnvelopeSimple className="h-4 w-4" />
-                  <p>Contact Mintplex Labs</p>
+                  <p>Contact Labs</p>
                 </a>
               </div>
             </div>
@@ -309,7 +309,7 @@ export default function DefaultChatContainer() {
 
   useEffect(() => {
     function processMsgs() {
-      if (!!window.localStorage.getItem("anythingllm_intro")) {
+      if (!!window.localStorage.getItem("dais_intro")) {
         setMockMessages([...MESSAGES]);
         return false;
       } else {
@@ -326,7 +326,7 @@ export default function DefaultChatContainer() {
         }, timer);
         timer += 2_500;
       });
-      window.localStorage.setItem("anythingllm_intro", 1);
+      window.localStorage.setItem("dais_intro", 1);
     }
 
     processMsgs();

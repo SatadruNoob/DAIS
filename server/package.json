@@ -1,9 +1,9 @@
 {
-  "name": "anything-llm-server",
+  "name": "dais-server",
   "version": "0.2.0",
   "description": "Server endpoints to process or create content for chatting",
   "main": "index.js",
-  "author": "Timothy Carambat (Mintplex Labs)",
+  "author": "Timothy Carambat (Labs)",
   "license": "MIT",
   "private": false,
   "engines": {

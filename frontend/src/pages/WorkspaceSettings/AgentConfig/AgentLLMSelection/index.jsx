@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import AnythingLLMIcon from "@/media/logo/anything-llm-icon.png";
+import DAISIcon from "@/media/logo/dais-icon.png";
 import AgentLLMItem from "./AgentLLMItem";
 import { AVAILABLE_LLM_PROVIDERS } from "@/pages/GeneralSettings/LLMPreference";
 import { CaretUpDown, MagnifyingGlass, X } from "@phosphor-icons/react";
@@ -10,7 +10,7 @@ const ENABLED_PROVIDERS = ["openai", "anthropic"];
 const LLM_DEFAULT = {
   name: "Please make a selection",
   value: "none",
-  logo: AnythingLLMIcon,
+  logo: DAISIcon,
   options: () => <React.Fragment />,
   description: "Agents will not work until a valid selection is made.",
   requiredConfig: [],

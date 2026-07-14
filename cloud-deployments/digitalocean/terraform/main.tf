@@ -15,9 +15,9 @@ provider "digitalocean" {
 }  
 
   
-resource "digitalocean_droplet" "anything_llm_instance" {  
+resource "digitalocean_droplet" "dais_instance" {  
   image  = "ubuntu-22-10-x64"  
-  name   = "anything-llm-instance"  
+  name   = "dais-instance"  
   region = "nyc3"  
   size   = "s-2vcpu-2gb"  
   

@@ -1,15 +1,15 @@
 version: "3.9"
 
-name: anythingllm
+name: dais
 
 networks:
-  anything-llm:
+  dais:
     driver: bridge
 
 services:
-  anything-llm:
-    container_name: anything-llm
-    image: anything-llm:latest
+  dais:
+    container_name: dais
+    image: dais:latest
     build:
       context: ../.
       dockerfile: ./docker/Dockerfile
@@ -29,6 +29,6 @@ services:
     env_file:
       - .env
     networks:
-      - anything-llm
+      - dais
     extra_hosts:
       - "host.docker.internal:host-gateway"

@@ -3,7 +3,7 @@ import Sidebar from "@/components/SettingsSidebar";
 import { isMobile } from "react-device-detect";
 import System from "@/models/system";
 import showToast from "@/utils/toast";
-import AnythingLLMIcon from "@/media/logo/anything-llm-icon.png";
+import DAISIcon from "@/media/logo/dais-icon.png";
 import OpenAiLogo from "@/media/llmprovider/openai.png";
 import GenericOpenAiLogo from "@/media/llmprovider/generic-openai.png";
 import AzureOpenAiLogo from "@/media/llmprovider/azure.png";
@@ -179,10 +179,10 @@ export const AVAILABLE_LLM_PROVIDERS = [
   {
     name: "Native",
     value: "native",
-    logo: AnythingLLMIcon,
+    logo: DAISIcon,
     options: (settings) => <NativeLLMOptions settings={settings} />,
     description:
-      "Use a downloaded custom Llama model for chatting on this AnythingLLM instance.",
+      "Use a downloaded custom Llama model for chatting on this DAIS instance.",
     requiredConfig: [],
   },
 ];
@@ -197,7 +197,7 @@ export default function GeneralLLMPreference() {
   const [selectedLLM, setSelectedLLM] = useState(null);
   const [searchMenuOpen, setSearchMenuOpen] = useState(false);
   const searchInputRef = useRef(null);
-  const isHosted = window.location.hostname.includes("useanything.com");
+  const isHosted = false; // Configure hosted domain in environment variables
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -282,7 +282,7 @@ export default function GeneralLLMPreference() {
                 <p className="text-xs leading-[18px] font-base text-white text-opacity-60">
                   These are the credentials and settings for your preferred LLM
                   chat & embedding provider. Its important these keys are
-                  current and correct or else AnythingLLM will not function
+                  current and correct or else DAIS will not function
                   properly.
                 </p>
               </div>

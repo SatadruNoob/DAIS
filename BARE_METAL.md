@@ -1,11 +1,11 @@
-# Run AnythingLLM in production without Docker
+# Run DAIS in production without Docker
 
 > [!WARNING]
 > This method of deployment is **not supported** by the core-team and is to be used as a reference for your deployment.
 > You are fully responsible for securing your deployment and data in this mode.
 > **Any issues** experienced from bare-metal or non-containerized deployments will be **not** answered or supported.
 
-Here you can find the scripts and known working process to run AnythingLLM outside of a Docker container. This method of deployment is preferable for those using local LLMs and want native performance on their devices.
+Here you can find the scripts and known working process to run DAIS outside of a Docker container. This method of deployment is preferable for those using local LLMs and want native performance on their devices.
 
 ### Minimum Requirements
 > [!TIP]
@@ -19,9 +19,9 @@ Here you can find the scripts and known working process to run AnythingLLM outsi
 ## Getting started
 
 1. Clone the repo into your server as the user who the application will run as.
-`git clone git@github.com:Mintplex-Labs/anything-llm.git`
+`git clone git@github.com:dais.git`
 
-2. `cd anything-llm` and run `yarn setup`. This will install all dependencies to run in production as well as debug the application.
+2. `cd dais` and run `yarn setup`. This will install all dependencies to run in production as well as debug the application.
 
 3. `cp server/.env.example server/.env` to create the basic ENV file for where instance settings will be read from on service start.
 
@@ -32,7 +32,7 @@ STORAGE_DIR="/your/absolute/path/to/server/.env"
 
 ## To start the application
 
-AnythingLLM is comprised of three main sections. The `frontend`, `server`, and `collector`. When running in production you will be running `server` and `collector` on two different processes, with a build step for compilation of the frontend.
+DAIS is comprised of three main sections. The `frontend`, `server`, and `collector`. When running in production you will be running `server` and `collector` on two different processes, with a build step for compilation of the frontend.
 
 1. Build the frontend application.
 `cd frontend && yarn build` - this will produce a `frontend/dist` folder that will be used later.
@@ -55,15 +55,15 @@ cd server && npx prisma migrate deploy --schema=./prisma/schema.prisma
 5. Boot the collection in another process
 `cd collector && NODE_ENV=production node index.js &` 
 
-AnythingLLM should now be running on `http://localhost:3001`!
+DAIS should now be running on `http://localhost:3001`!
 
-## Updating AnythingLLM
+## Updating DAIS
 
-To update AnythingLLM with future updates you can `git pull origin master` to pull in the latest code and then repeat steps 2 - 5 to deploy with all changes fully.
+To update DAIS with future updates you can `git pull origin master` to pull in the latest code and then repeat steps 2 - 5 to deploy with all changes fully.
 
 _note_ You should ensure that each folder runs `yarn` again to ensure packages are up to date in case any dependencies were added, changed, or removed.
 
-_note_ You should `pkill node` before running an update so that you are not running multiple AnythingLLM processes on the same instance as this can cause conflicts.
+_note_ You should `pkill node` before running an update so that you are not running multiple DAIS processes on the same instance as this can cause conflicts.
 
 
 ### Example update script
@@ -71,7 +71,7 @@ _note_ You should `pkill node` before running an update so that you are not runn
 ```shell
 #!/bin/bash
 
-cd $HOME/anything-llm &&\
+cd $HOME/dais &&\
 git checkout . &&\
 git pull origin master &&\
 echo "HEAD pulled to commit $(git log -1 --pretty=format:"%h" | tail -n 1)"
@@ -80,7 +80,7 @@ echo "Freezing current ENVs"
 curl -I "http://localhost:3001/api/env-dump" | head -n 1|cut -d$' ' -f2
 
 echo "Rebuilding Frontend"
-cd $HOME/anything-llm/frontend && yarn && yarn build && cd $HOME/anything-llm
+cd $HOME/dais/frontend && yarn && yarn build && cd $HOME/dais
 
 echo "Copying to Sever Public"
 rm -rf server/public
@@ -90,21 +90,21 @@ echo "Killing node processes"
 pkill node
 
 echo "Installing collector dependencies"
-cd $HOME/anything-llm/collector && yarn
+cd $HOME/dais/collector && yarn
 
 echo "Installing server dependencies & running migrations"
-cd $HOME/anything-llm/server && yarn
-cd $HOME/anything-llm/server && npx prisma migrate deploy --schema=./prisma/schema.prisma
-cd $HOME/anything-llm/server && npx prisma generate
+cd $HOME/dais/server && yarn
+cd $HOME/dais/server && npx prisma migrate deploy --schema=./prisma/schema.prisma
+cd $HOME/dais/server && npx prisma generate
 
 echo "Booting up services."
 truncate -s 0 /logs/server.log # Or any other log file location.
 truncate -s 0 /logs/collector.log
 
-cd $HOME/anything-llm/server
+cd $HOME/dais/server
 (NODE_ENV=production node index.js) &> /logs/server.log &
 
-cd $HOME/anything-llm/collector
+cd $HOME/dais/collector
 (NODE_ENV=production node index.js) &> /logs/collector.log &
 ```
 
