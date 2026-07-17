@@ -514,7 +514,7 @@ function isDownloadedModel(input = "") {
 }
 
 async function validDockerizedUrl(input = "") {
-  if (process.env.ANYTHING_LLM_RUNTIME !== "docker") return null;
+  if (process.env.DAIS_RUNTIME !== "docker") return null;
 
   try {
     const { isPortInUse, getLocalHosts } = require("./portAvailabilityChecker");

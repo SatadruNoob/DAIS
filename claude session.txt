@@ -1,0 +1,19 @@
+  Settings  Status   Config   Usage   Stats
+
+  Version:          2.1.201
+  Session name:     Replace AnythingLLM branding with DAIS
+  Session ID:       0e3cc5fa-15d4-4f24-967f-0e2fd7e9b31e
+  cwd:              C:\Users\Distronix-User.DESKTOP-21KOL98\DAIS
+  Login method:     Claude Pro account
+  Organization:     biswas.sata@gmail.com's Organization
+  Email:            biswas.sata@gmail.com
+
+  Model:            haiku (claude-haiku-4-5-20251001)
+  MCP servers:      1 connected, 3 disabled · /mcp
+  Setting sources:  User settings, Project local settings
+
+  Esc to cancel
+
+
+
+
